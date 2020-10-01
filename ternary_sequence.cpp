@@ -1,14 +1,9 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-
-
-int main(){
-    int t;
-    cin>>t;
-
-    while(t--){
-        
+void fun()
+{
+      
         int m,smm=0,x0,x1,x2,y0,y1,y2;
 
         cin>>x0>>x1>>x2;
@@ -31,6 +26,15 @@ int main(){
 
         cout<<smm<<endl;
         
+}
+
+
+int main(){
+    int t;
+    cin>>t;
+
+    while(t--){
+      fun();
     }
     return 0;
 }
