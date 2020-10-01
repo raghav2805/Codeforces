@@ -4,21 +4,21 @@ using namespace std;
 
 void solve(int arr[],int n,int s[]){
 
-    stack<int> st;
-    st.push(0);
+    stack<int> ab1;
+    ab1.push(0);
 
     s[0]=1;
 
     for(int i=1;i<n;i++){
         int sc=1;
 
-        while(!st.empty() && arr[st.top()] <= arr[i]){
-            st.pop();
+        while(!ab1.empty() && arr[ab1.top()] <= arr[i]){
+            ab1.pop();
         }
 
-        s[i]=(st.empty())? (i+1) : (i-st.top());
+        s[i]=(ab1.empty())? (i+1) : (i-ab1.top());
 
-        st.push(i);
+        ab1.push(i);
     }
 
     for(int i=0;i<n;i++){
