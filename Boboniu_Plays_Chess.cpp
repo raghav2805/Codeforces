@@ -18,30 +18,30 @@ int main(){
     cin.tie(0);
     cout.tie(0);
 
-    int t=1;
-//    cin>>t;
+    double x=1;
+//    cin>>x;
 
-    while(t--){
-        int n,m,sx,sy;
+    while(x--){
+        int a,b,sx,sy;
 
-        cin>>n>>m>>sx>>sy;
+        cin>>a>>b>>sx>>sy;
         
-        for(int i=1;i<=n;i++){
+        for(int i=1;i<=a;i++){
 
-            for(int j=1;j<=m;j++){
+            for(int j=1;j<=b;j++){
                 cout<<sx<<" "<<sy<<endl;
                 sy++;
-                if(sy>m){
+                if(sy>b){
                     sy=1;
                 }
             }
             sx++;
             sy--;
             if(sy==0){
-                sy=m;
+                sy=b;
             
             }
-            if(sx>n){
+            if(sx>a){
                 sx=1;
             }
         }
