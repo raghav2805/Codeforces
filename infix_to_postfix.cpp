@@ -1,6 +1,6 @@
    
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std;//aded
 
 int pre(char c){
     
