@@ -34,23 +34,23 @@ void print(long long s[],long long n){
 
 int main(){
     
-    int t;
-    cin>>t;
+    double x;
+    cin>>x;
 
-    while(t--){
+    while(x--){
         
-        long long n;
-        cin>>n;
+        long long a;
+        cin>>a;
 
-        long long arr[n];
+        long long arr[a];
 
-        for(int i=0;i<n;i++){
+        for(int i=0;i<a;i++){
             cin>>arr[i];
         }
-        long long s[n];
+        long long s[a];
 
-        solve(arr,n,s);
-        print(s,n);
+        solve(arr,a,s);
+        print(s,a);
         cout<<endl;
     }
     return 0;
