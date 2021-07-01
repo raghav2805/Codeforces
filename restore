@@ -1,0 +1,131 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+#define pb push_back
+#define btoi(s1) stoi(s1, nullptr, 2)
+#define itob(x) bitset<32>(x).to_string()
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+#define vi vector<int>
+#define vvi vector<vector<int>>
+#define vpii vector<pair<int, int>>
+#define pii pair<int, int>
+#define rep(i, a, b) for (int i = a; i < b; i++)
+#define fast                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0);                       \
+    cout.tie(0)
+const int INF = 1e9 + 7;
+
+typedef vector<bool> vb;
+typedef vector<string> vs;
+typedef priority_queue<int> pqmax;
+typedef priority_queue<int, vector<int>, greater<int>> pq;
+typedef map<int, int> mii;
+
+template <typename T>
+void input(vector<T> &v, int n)
+{
+    T x;
+    rep(i, 0, n)
+    {
+        cin >> x;
+        v.pb(x);
+    }
+}
+
+void solve()
+{
+
+    int n;
+    cin>>n;
+
+    vi v;input(v,n);
+
+    set<int> s1,s2;
+    for(int i=1;i<n+1;i++){
+        s1.insert(i);
+        s2.insert(i);
+    }
+
+    auto it = s1.lower_bound(v[0]);
+    s1.erase(it);
+    
+    auto it1 = s2.lower_bound(v[0]);
+    s2.erase(it1);
+
+    rep(i,1,n){
+        if(v[i]!=v[i-1]){ 
+            it = s1.lower_bound(v[i]);
+            s1.erase(it);
+
+            it1 = s2.lower_bound(v[i]);
+            s2.erase(it1);
+        }
+
+    }
+
+        vi ans_min(n);
+    //min
+    {
+        it = s1.begin();
+        ans_min[0] = v[0];
+        rep(i,1,n){
+            if(v[i] != v[i-1]){
+                ans_min[i] = v[i];
+            }
+            else
+            {
+                ans_min[i] = *it;
+                it++;
+            }
+            
+        }
+    }
+
+        vi ans_max(n);
+    //max
+    {
+        ans_max[0] = v[0];
+        rep(i,1,n){
+            if(v[i] != v[i-1]){
+                ans_max[i] = v[i];
+            }
+            else
+            {
+                it = s2.lower_bound(v[i]);
+                it--;
+                ans_max[i] = *it;
+                s2.erase(it);
+            }
+        }
+    }
+
+    rep(i,0,n){
+        cout<<ans_min[i]<<" ";
+    }
+    cout<<endl;
+
+    rep(i,0,n){
+        cout<<ans_max[i]<<" ";
+    }
+    cout<<endl;
+
+    
+}
+
+signed main()
+{
+    // cout<<fixed<<setprecision(15);
+
+    fast;
+    int t = 1;
+    cin >> t;
+
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
